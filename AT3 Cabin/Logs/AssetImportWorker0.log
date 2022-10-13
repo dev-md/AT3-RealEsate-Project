@@ -139,3 +139,11 @@ Received Import Request.
 Start importing Assets/Scenes/GameScene/LightingData.asset using Guid(5770651578f2ff642afecc72bae26d45) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '458dc7275b0a6e88856241c361abb795') in 0.224494 seconds 
   Import took 0.237348 seconds .
 
+========================================================================
+Received Import Request.
+  Time since last request: 311.347465 seconds.
+  path: Assets/Scenes/GameScene.unity
+  artifactKey: Guid(464fdd1053171db49ba3cffb8233f4ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/GameScene.unity using Guid(464fdd1053171db49ba3cffb8233f4ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '40283d0ecc2db0c24495e4413ca4efcc') in 0.012321 seconds 
+  Import took 0.014845 seconds .
+
