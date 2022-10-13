@@ -53,10 +53,11 @@
     <UnityVersion>2020.3.26f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Interaction.cs" />
     <Compile Include="Assets\Scripts\NavigationWaypoint.cs" />
     <Compile Include="Assets\Scripts\MouseLook.cs" />
-    <Compile Include="Assets\Scripts\Interaction.cs" />
     <Compile Include="Assets\Scripts\DigitalTooltip.cs" />
+    <Compile Include="Assets\Scripts\EnableScriptDisance.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -658,6 +659,9 @@
     </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

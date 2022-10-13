@@ -49,6 +49,7 @@ public class DigitalTooltip : InteractableObject
         if (imageRenderer != null)
         {
             imageRenderer.sprite = icon;
+            imageRenderer.rectTransform.sizeDelta = new Vector2(0.5f, 0.5f);
         }
         if (textObject != null)
         {
@@ -80,6 +81,7 @@ public class DigitalTooltip : InteractableObject
             if (imageRenderer != null)
             {
                 imageRenderer.sprite = background;
+                imageRenderer.rectTransform.sizeDelta = new Vector2(1f, 1f);
             }
             if (textObject != null)
             {
@@ -106,6 +108,7 @@ public class DigitalTooltip : InteractableObject
             if (imageRenderer != null)
             {
                 imageRenderer.sprite = icon;
+                imageRenderer.rectTransform.sizeDelta = new Vector2(0.5f, 0.5f);
             }
             if (textObject != null)
             {
