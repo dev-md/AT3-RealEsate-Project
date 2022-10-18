@@ -6507,12 +6507,12 @@ GameObject:
   - component: {fileID: 361973545}
   - component: {fileID: 361973544}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Waypoint Manger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &361973541
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6627,6 +6627,7 @@ MonoBehaviour:
   - {fileID: 1899509884}
   - {fileID: 38322377}
   - {fileID: 240924156}
+  buttonsList: []
 --- !u!1001 &423585446
 PrefabInstance:
   m_ObjectHideFlags: 0

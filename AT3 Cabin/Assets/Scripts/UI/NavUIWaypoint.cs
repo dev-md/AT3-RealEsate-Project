@@ -24,10 +24,10 @@ public class NavUIWaypoint : MonoBehaviour
             waypoints = new List<GameObject>();
         }
 
-        //Placing all children to the waypoint in editor.
+        //Placing All Child on the Count of waypoints.
         for (int i = 0; i < waypoints.Count; i++)
         {
-            Instantiate(prefab,transform);
+            Instantiate(prefab,transform); // From a Prefab
         }
 
         //Getting a Ref of all children.
@@ -36,18 +36,21 @@ public class NavUIWaypoint : MonoBehaviour
             buttonsList.Add(transform.GetChild(i).gameObject); // Add to a list.
         }
 
+        //Assgining Vars to the children
         for(int i = 0;i < buttonsList.Count; i++)
         {
-            buttonsList[i].name = i.ToString();
+            buttonsList[i].name = i.ToString(); //Naming the button to the index.
             buttonsList[i].transform.GetChild(0).gameObject.GetComponent<Text>().text = waypoints[i].name;
             buttonsList[i].GetComponent<Button>().onClick.AddListener(ButtonFunction);
         }
     }
 
-    public void ButtonFunction()
+    public void ButtonFunction() //The Function click for the button.
     {
+        //Toggle the UI
         transform.parent.gameObject.GetComponent<ToggleScript>().ToggleUI();
-        //print(EventSystem.current.currentSelectedGameObject.name);
+
+        //Button depended on teleporting.
         int num = Convert.ToInt32(EventSystem.current.currentSelectedGameObject.name);
         GetComponent<TPCommand>().TeleportToObject(waypoints[num]);
     }
