@@ -13,18 +13,19 @@ public class EnableScriptDisance : MonoBehaviour
     private GameObject child;
     private void Awake()
     {
-        child = transform.GetChild(0).gameObject;
+        child = transform.GetChild(0).gameObject; // Setting the child
     }
 
     private void Update()
     {
-        if(Vector3.Distance(transform.position, player.transform.position) > 5)
+        //Distance Check
+        if(Vector3.Distance(transform.position, player.transform.position) > 3.5)
         {
-            child.SetActive(false);
+            child.SetActive(false); //If true, disable the child
         }
         else
         {
-            child.SetActive(true);
+            child.SetActive(true); //If false, enable the child
         }
     }
 

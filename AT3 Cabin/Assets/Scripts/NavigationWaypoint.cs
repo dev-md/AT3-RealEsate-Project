@@ -104,4 +104,9 @@ public class NavigationWaypoint : InteractableObject
         }
         return false;
     }
+
+    public void EnableWayPoint()
+    {
+        Activate();
+    }
 }
