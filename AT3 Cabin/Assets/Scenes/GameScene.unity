@@ -6503,8 +6503,8 @@ GameObject:
   - component: {fileID: 361973541}
   - component: {fileID: 361973543}
   - component: {fileID: 361973542}
-  - component: {fileID: 361973546}
   - component: {fileID: 361973545}
+  - component: {fileID: 361973546}
   - component: {fileID: 361973544}
   m_Layer: 5
   m_Name: Waypoint Manger
@@ -7334,7 +7334,7 @@ TerrainCollider:
   m_Material: {fileID: 0}
   m_Enabled: 1
   m_TerrainData: {fileID: 15600000, guid: 78008e4367245274f89317181626ef9c, type: 2}
-  m_EnableTreeColliders: 1
+  m_EnableTreeColliders: 0
 --- !u!218 &431047387
 Terrain:
   m_ObjectHideFlags: 0
@@ -7345,11 +7345,11 @@ Terrain:
   m_Enabled: 1
   serializedVersion: 6
   m_TerrainData: {fileID: 15600000, guid: 78008e4367245274f89317181626ef9c, type: 2}
-  m_TreeDistance: 5000
+  m_TreeDistance: 175
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5
   m_TreeMaximumFullLODCount: 50
-  m_DetailObjectDistance: 80
+  m_DetailObjectDistance: 0
   m_DetailObjectDensity: 1
   m_HeightmapPixelError: 5
   m_SplatMapDistance: 1000

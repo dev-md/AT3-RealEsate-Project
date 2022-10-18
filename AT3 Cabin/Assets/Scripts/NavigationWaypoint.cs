@@ -13,6 +13,7 @@ public class NavigationWaypoint : InteractableObject
     private ParticleSystem particles;
     private Collider objectCollider;
     private AudioSource audioSource;
+    private Transform playerTran;
 
     //Awake is executed before the Start method
     private void Awake()
@@ -32,6 +33,11 @@ public class NavigationWaypoint : InteractableObject
         {
             Debug.LogWarning($"{name} should have a particle system as a child!");
         }
+
+        if (Camera.main != null)
+        {
+            playerTran = Camera.main.transform;
+        }
     }
 
     // Start is called before the first frame update
@@ -44,6 +50,14 @@ public class NavigationWaypoint : InteractableObject
         if (particles != null)
         {
             particles.Play();
+        }
+    }
+
+    private void Update()
+    {
+        if((playerTran.position == transform.position) &&(Interaction.Instance.CurrentWaypoint != this))
+        {
+            Activate();
         }
     }
 

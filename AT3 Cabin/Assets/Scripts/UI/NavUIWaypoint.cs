@@ -53,5 +53,6 @@ public class NavUIWaypoint : MonoBehaviour
         //Button depended on teleporting.
         int num = Convert.ToInt32(EventSystem.current.currentSelectedGameObject.name);
         GetComponent<TPCommand>().TeleportToObject(waypoints[num]);
+
     }
 }
