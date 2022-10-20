@@ -34,7 +34,7 @@ public class ToggleScript : MonoBehaviour
         }
     }
 
-    public void ToggleUI()
+    public void ToggleUI() //For the waypoint menu
     {
         //Go into the Toggle Switch
         if (_state == false)

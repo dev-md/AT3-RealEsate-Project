@@ -12,6 +12,7 @@ using UnityEngine.EventSystems;
 
 public class NavUIWaypoint : MonoBehaviour
 {
+    //SerializeField vars
     [SerializeField] private GameObject prefab;
     [SerializeField] private List<GameObject> waypoints;
     [SerializeField] private List<GameObject> buttonsList; //Dont Edit, in editor
@@ -28,17 +29,11 @@ public class NavUIWaypoint : MonoBehaviour
         for (int i = 0; i < waypoints.Count; i++)
         {
             Instantiate(prefab,transform); // From a Prefab
-        }
-
-        //Getting a Ref of all children.
-        for(int i = 0; i < transform.childCount; i++)
-        {
+            
+            //Getting a Ref of all children.
             buttonsList.Add(transform.GetChild(i).gameObject); // Add to a list.
-        }
 
-        //Assgining Vars to the children
-        for(int i = 0;i < buttonsList.Count; i++)
-        {
+            //Assgining Vars to the children
             buttonsList[i].name = i.ToString(); //Naming the button to the index.
             buttonsList[i].transform.GetChild(0).gameObject.GetComponent<Text>().text = waypoints[i].name;
             buttonsList[i].GetComponent<Button>().onClick.AddListener(ButtonFunction);
