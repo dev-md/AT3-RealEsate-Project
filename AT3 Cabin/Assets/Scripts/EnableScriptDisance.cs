@@ -11,6 +11,7 @@ public class EnableScriptDisance : MonoBehaviour
 {
     [SerializeField] private GameObject player;
     private GameObject child;
+    private float _dist = 3.5f; // Read the Mouse change script
     private void Awake()
     {
         child = transform.GetChild(0).gameObject; // Setting the child
@@ -19,7 +20,7 @@ public class EnableScriptDisance : MonoBehaviour
     private void Update()
     {
         //Distance Check
-        if(Vector3.Distance(transform.position, player.transform.position) > 3.5)
+        if(Vector3.Distance(transform.position, player.transform.position) > _dist)
         {
             child.SetActive(false); //If true, disable the child
         }
