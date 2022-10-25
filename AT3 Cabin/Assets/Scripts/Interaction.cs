@@ -14,6 +14,7 @@ public class Interaction : MonoBehaviour
     [Tooltip("Must reference the crosshair UI image.")]
     [SerializeField] private Image crosshair;
     [SerializeField] private Text reachText;
+    [SerializeField] private GameObject viewRange;
 
     /// <summary>
     /// The player's current waypoint.
@@ -33,8 +34,9 @@ public class Interaction : MonoBehaviour
     //Awake is executed before the Start method
     private void Awake()
     {
+        reach = 3.5f;
         //initialise singleton pattern
-        if(Instance == null) 
+        if (Instance == null) 
         {
             Instance = this;
         }
@@ -103,6 +105,8 @@ public class Interaction : MonoBehaviour
         {
             Application.Quit();             //Quit application when escape is pressed
         }
+
+        viewRange.GetComponent<UpdateSystem>().SetRange(reach);
     }
 }
 

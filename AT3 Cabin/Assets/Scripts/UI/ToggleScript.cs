@@ -16,21 +16,38 @@ public class ToggleScript : MonoBehaviour
     private Interaction _mouseInteraction;
     private bool _state = false;
 
+    [SerializeField] private List<GameObject> _objectsList;
+
     private void Awake()
     {
         //Caching all varibles with scripts and gameobjects
-        //_gameObject = transform.GetChild(0).transform.gameObject;
         _mouseLook = Camera.main.GetComponent<MouseLook>();
         _mouseInteraction = Camera.main.GetComponent<Interaction>();
+
+        if(_input == KeyCode.Mouse2)
+        {
+            _state = true;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(_input)) //If the Key is press
+        if(_input == KeyCode.Mouse1)
         {
-            ToggleUI();
+            if (Input.GetKeyDown(_input)) //If the Key is press
+            {
+                ToggleUI();
+            }
         }
+        else if ((_input == KeyCode.Mouse2) && (_objectsList.Count > 0))
+        {
+            if (Input.GetKeyDown(_input)) //If the Key is press
+            {
+                RangeToggleUI();
+            }
+        }
+
     }
 
     public void ToggleUI() //For the waypoint menu
@@ -52,6 +69,25 @@ public class ToggleScript : MonoBehaviour
         
         //Cycle through children and disable or enable them
         foreach(Transform child in transform)
+        {
+            child.gameObject.SetActive(_state);
+        }
+    }
+
+    public void RangeToggleUI() //For the range menu and parictle
+    {
+        //Go into the Toggle Switch
+        if (_state == false)
+        {
+            _state = true; //Switch the state
+        }
+        else if (_state == true)
+        {
+            _state = false;
+        }
+
+        //Cycle through children and disable or enable them
+        foreach (GameObject child in _objectsList)
         {
             child.gameObject.SetActive(_state);
         }
