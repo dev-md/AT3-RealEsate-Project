@@ -10,10 +10,10 @@ public class Interaction : MonoBehaviour
 {
     [Tooltip("Turn on to receive debug messages from this instance of the script.")]
     [SerializeField] private bool debug;
-    [Tooltip("The distance from the player that objects can be interacted with.")]
-    [SerializeField] private float reach;
+    public float reach { get; private set; } = 3.5f;
     [Tooltip("Must reference the crosshair UI image.")]
     [SerializeField] private Image crosshair;
+    [SerializeField] private Text reachText;
 
     /// <summary>
     /// The player's current waypoint.
@@ -52,6 +52,13 @@ public class Interaction : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (Input.GetAxis("Mouse ScrollWheel") != 0f)
+        {
+            reach += Input.GetAxis("Mouse ScrollWheel");
+            reach = Mathf.Clamp(reach, 0f, 15f);
+            reachText.text = reach.ToString("F1");
+        }
+
         if (Physics.Raycast(transform.position, transform.forward, out RaycastHit rayHit, reach) == true)        //if raycast hits object
         {
             if (rayHit.collider.TryGetComponent(out InteractableObject interactable) == true)                   //if object hit has interactable component
@@ -81,9 +88,18 @@ public class Interaction : MonoBehaviour
                     crosshair.color = Color.red;            //set crosshair colour red
                 }
             }
+
+        }
+        else            //if hit object doesnt have interactable component
+        {
+            if (crosshair != null && crosshair.color != Color.red)
+            {
+                crosshair.color = Color.red;            //set crosshair colour red
+            }
         }
 
-        if(Input.GetKeyDown(KeyCode.Escape) == true) 
+
+        if (Input.GetKeyDown(KeyCode.Escape) == true) 
         {
             Application.Quit();             //Quit application when escape is pressed
         }
