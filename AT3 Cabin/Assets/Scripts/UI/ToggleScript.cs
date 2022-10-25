@@ -12,7 +12,6 @@ public class ToggleScript : MonoBehaviour
 
     // All varibles needed for UI toogle
     [SerializeField] private KeyCode _input;
-    private GameObject _gameObject;
     private MouseLook _mouseLook;
     private Interaction _mouseInteraction;
     private bool _state = false;
@@ -20,7 +19,7 @@ public class ToggleScript : MonoBehaviour
     private void Awake()
     {
         //Caching all varibles with scripts and gameobjects
-        _gameObject = transform.GetChild(0).transform.gameObject;
+        //_gameObject = transform.GetChild(0).transform.gameObject;
         _mouseLook = Camera.main.GetComponent<MouseLook>();
         _mouseInteraction = Camera.main.GetComponent<Interaction>();
     }
@@ -50,6 +49,11 @@ public class ToggleScript : MonoBehaviour
 
         //Finish with the state varible to enable or disable scripts and objects.
         _mouseInteraction.enabled = !_state;
-        _gameObject.SetActive(_state);
+        
+        //Cycle through children and disable or enable them
+        foreach(Transform child in transform)
+        {
+            child.gameObject.SetActive(_state);
+        }
     }
 }
