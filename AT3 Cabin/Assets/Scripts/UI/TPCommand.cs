@@ -10,7 +10,7 @@ public class TPCommand : MonoBehaviour
     // Cache the player
     [SerializeField] private GameObject mainObject;
 
-    public void TeleportToObject(GameObject host)
+    public void TeleportToObject(GameObject host) //Method this.
     {
         //Simple Script of inputing a gameobject to teleport to.
         mainObject.transform.position = host.transform.position;

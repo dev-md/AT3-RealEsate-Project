@@ -2,6 +2,7 @@
 //14/10/2022
 
 // this is a basic script for toggling a script with input
+// edit, i made this messer by adding a case for checking for a button type.
 
 using System.Collections;
 using System.Collections.Generic;
@@ -24,22 +25,23 @@ public class ToggleScript : MonoBehaviour
         _mouseLook = Camera.main.GetComponent<MouseLook>();
         _mouseInteraction = Camera.main.GetComponent<Interaction>();
 
-        if(_input == KeyCode.Mouse2)
+        if(_input == KeyCode.Mouse2) //Seeing if its middle mouse
         {
-            _state = true;
+            _state = true; // We want to start enable.
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(_input == KeyCode.Mouse1)
+        if(_input == KeyCode.Mouse1) //Checking if its right click.
         {
             if (Input.GetKeyDown(_input)) //If the Key is press
             {
                 ToggleUI();
             }
         }
+        //Checking if its middle mouse and having some objects to disable.
         else if ((_input == KeyCode.Mouse2) && (_objectsList.Count > 0))
         {
             if (Input.GetKeyDown(_input)) //If the Key is press

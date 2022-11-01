@@ -37,6 +37,11 @@ public class NavUIWaypoint : MonoBehaviour
             buttonsList[i].name = i.ToString(); //Naming the button to the index.
             buttonsList[i].transform.GetChild(0).gameObject.GetComponent<Text>().text = waypoints[i].name;
             buttonsList[i].GetComponent<Button>().onClick.AddListener(ButtonFunction);
+
+            //We are numbering the name of the button, to have the same sequence,
+            //of the waypoint that is field from the start.
+            //This is because we want to find waypoint through the index of the button
+            //and this will be checked against the list.
         }
     }
 
